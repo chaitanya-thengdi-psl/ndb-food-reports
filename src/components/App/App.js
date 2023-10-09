@@ -2,7 +2,7 @@ import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import FoodList from '../FoodList/FoodList';
 import Search from '../Search/Search';
 
-import './App.css';
+import './App.scss';
 
 function App() {
 
