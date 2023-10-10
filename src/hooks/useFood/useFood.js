@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function useFood (foodId) {
+function useFood ({foodId}) {
     const [foods, setFoods] = useState([]);
     useEffect(() => {
         function fetchFood(fdcId) {
@@ -10,7 +10,7 @@ function useFood (foodId) {
             .then(data => setFoods([...foods, data]));
         }
 
-        if(!foods.map(food => food.fdcId).includes(foodId)) {
+        if(foodId && !foods.map(food => food.fdcId).includes(foodId)) {
             fetchFood(foodId);
         }
 

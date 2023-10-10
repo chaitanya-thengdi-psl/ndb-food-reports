@@ -13,7 +13,7 @@ function App() {
   }
 
   // called on each rerender, move to effect
-  const foods = useFood(534358);
+  const foods = useFood({foodId: 534358});
 
   return (
     <div className="App">
