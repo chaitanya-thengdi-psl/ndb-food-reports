@@ -35,7 +35,15 @@ function App() {
   function addToFoodsList(value) {
     if(!foods.map(food => food.fdcId).includes(value.fdcId)) {
       setFoods([...foods, value])
+      localStorage.setItem("foods", JSON.stringify([...foods, value]))
+
     }
+  }
+
+  function removeFromFoodsList(value) {
+    const filteredFoods = foods.filter(food => food.fdcId !== value.fdcId);
+    setFoods(filteredFoods);
+    localStorage.setItem("foods", JSON.stringify(filteredFoods))
   }
 
   return (
@@ -51,7 +59,7 @@ function App() {
           </li>)}
         </ul>
       </div>}
-      <FoodList foods={foods} setSelectedFood={setSelectedFood} />
+      <FoodList foods={foods} removeSelectedFood={removeFromFoodsList} setSelectedFood={setSelectedFood} />
       {selectedFood && <BasicReport food={selectedFood} />}
     </div>
   );
