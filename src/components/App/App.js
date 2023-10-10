@@ -24,6 +24,13 @@ function App() {
   const [selectedFood, setSelectedFood] = useState(null);
 
   useEffect(() => {
+    const storedFoods = localStorage.getItem('foods');
+    if(storedFoods) {
+      setFoods(JSON.parse(storedFoods));
+    }
+  }, []);
+
+  useEffect(() => {
     if(query) {
       setViewingSearchResults(true);
       fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=DEMO_KEY&query=${query}`, {
