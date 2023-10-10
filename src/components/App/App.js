@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import FoodList from '../FoodList/FoodList';
 import Search from '../Search/Search';
 
@@ -46,7 +45,6 @@ function App() {
 
   return (
     <div className="App">
-      <Breadcrumb />
       <h1>Food Reports</h1>
       <Search onSearch={(query) => setQuery(query)} clearSearch={() => setQuery("")}/>
       {viewingSearchResults && <div>
