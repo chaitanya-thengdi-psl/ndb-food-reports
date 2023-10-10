@@ -48,7 +48,7 @@ function App() {
     <div className="App">
       <Breadcrumb />
       <h1>Food Reports</h1>
-      <Search onSearch={(query) => setQuery(query)}/>
+      <Search onSearch={(query) => setQuery(query)} clearSearch={() => setQuery("")}/>
       {viewingSearchResults && <div>
         Search results:
         <ul>
