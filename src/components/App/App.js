@@ -7,6 +7,7 @@ import FoodList from '../FoodList/FoodList';
 import Search from '../Search/Search';
 
 import './App.scss';
+import BasicReport from '../BasicReport/BasicReport';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
   const [query, setQuery] = useState(false);
   const [searchData, setSearchData] = useState([])
   const [viewingSearchResults, setViewingSearchResults] = useState(true);
+  const [selectedFood, setSelectedFood] = useState(null);
 
   useEffect(() => {
     if(query) {
@@ -49,7 +51,8 @@ function App() {
           </li>)}
         </ul>
       </div>}
-      <FoodList foods={foods} />
+      <FoodList foods={foods} setSelectedFood={setSelectedFood} />
+      {selectedFood && <BasicReport food={selectedFood} />}
     </div>
   );
 }
