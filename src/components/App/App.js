@@ -8,11 +8,11 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
+import BasicReport from '../BasicReport/BasicReport';
 import FoodList from '../FoodList/FoodList';
 import Search from '../Search/Search';
 
 import './App.scss';
-import BasicReport from '../BasicReport/BasicReport';
 
 function App() {
 
