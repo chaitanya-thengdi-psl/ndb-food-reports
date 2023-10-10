@@ -1,9 +1,9 @@
-function FoodList () {
+function FoodList ({foods}) {
     return <div className="FoodList">
         <ul>
-            <li>1 <a href="#">See Report</a></li>
-            <li>2 <a href="#">See Report</a></li>
-            <li>3 <a href="#">See Report</a></li>
+            {foods.map(food => <li>
+                {food.description} <a href="#">See Report</a>
+            </li>)}
         </ul>
     </div>
 }

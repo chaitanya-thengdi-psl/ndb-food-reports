@@ -1,3 +1,5 @@
+import useFood from '../../hooks/useFood/useFood';
+
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import FoodList from '../FoodList/FoodList';
 import Search from '../Search/Search';
@@ -10,12 +12,15 @@ function App() {
     console.log(`Searched for ${query}`)
   }
 
+  // called on each rerender, move to effect
+  const foods = useFood(534358);
+
   return (
     <div className="App">
       <Breadcrumb />
       <h1>Food Reports</h1>
       <Search onSearch={(query) => searchFoodList(query)}/>
-      <FoodList />
+      <FoodList foods={foods} />
     </div>
   );
 }
