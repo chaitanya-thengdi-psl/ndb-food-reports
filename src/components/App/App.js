@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 
-import useFood from '../../hooks/useFood/useFood';
-
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import FoodList from '../FoodList/FoodList';
 import Search from '../Search/Search';
