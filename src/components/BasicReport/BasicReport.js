@@ -27,7 +27,7 @@ function BasicReport({ food }) {
             <Table responsive>
                 <tbody>
                     {food.foodNutrients.map(nutrient => <tr>
-                        <td>{nutrient.nutrientName}</td><td>{nutrient.value} {nutrient.unitName}</td>
+                        <td>{nutrient.nutrientName}</td><td>{nutrient.value} {nutrient.unitName.toLowerCase()}</td>
                     </tr>
                     )}
                 </tbody>
