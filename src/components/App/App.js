@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import {ReactComponent as Plus} from 'bootstrap-icons/icons/plus.svg'
 
-import Button from 'react-bootstrap/Button';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -74,7 +75,7 @@ function App() {
             {viewingSearchResults && <div>
               <label>Search results:</label>
               <ListGroup as="ul">
-                {searchData.map(datum => <ListGroup.Item as="li"><span>{datum.description}</span> <Button className="addSearchResult" variant="secondary" onClick={() => addToFoodsList(datum)}>Add</Button></ListGroup.Item>)}
+                {searchData.map(datum => <ListGroup.Item as="li"><span>{datum.description}</span> <a className="large icon addSearchResult" title="Add to List" onClick={() => addToFoodsList(datum)}><Plus /></a></ListGroup.Item>)}
               </ListGroup>
             </div>}
             <Tabs

@@ -6,3 +6,13 @@
 .addSearchResult {
   float: right;
 }
+
+.icon {
+  color: initial;
+  cursor: pointer;
+  text-decoration: none;
+
+  &.large {
+    transform: scale(1.2);
+  }
+}
