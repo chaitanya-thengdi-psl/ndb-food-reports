@@ -1,10 +1,11 @@
 import {debounce} from 'lodash';
 
 import Button from 'react-bootstrap/Button';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+import './Search.scss';
 
 function Search ({onSearch, clearSearch}) {
 
@@ -13,16 +14,11 @@ function Search ({onSearch, clearSearch}) {
 
     return <div className="Search">
         <Form>
-            <Form.Group as={Row}>
-                <Col><FloatingLabel
-                    label="Search Foods:"
-                >
-                    <Form.Control type="search" placeholder="Nut 'n' berry mix" onChange={(e) => onChange(e.target.value)} />
-                </FloatingLabel></Col>
-                
-                <Col><Button onClick={() => clearSearch()}>Clear</Button></Col>
-                
-            </Form.Group>
+            <Row>
+                <Col xs={3} md={2}><Form.Label column>Search Foods:</Form.Label></Col>
+                <Col xs={6} md={8}><Form.Control type="search" placeholder="Nut 'n' berry mix" onChange={(e) => onChange(e.target.value)} /></Col>
+                <Col><Button type="button" onClick={() => clearSearch()}>Clear</Button></Col>
+            </Row>
         </Form>
    </div>;
 }
