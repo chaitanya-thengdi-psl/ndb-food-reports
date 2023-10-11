@@ -1,12 +1,16 @@
-import ListGroup from 'react-bootstrap/ListGroup';
+import Table from 'react-bootstrap/Table';
 
 function FoodList ({foods, removeSelectedFood, viewReport}) {
     return <div className="FoodList">
-        <ListGroup as="ul">
-            {foods.map(food => <ListGroup.Item as="li">
-                {food.description} <a href="#" onClick={() => viewReport(food)}>See Report</a> <a href="#" onClick={() => removeSelectedFood(food)}>Remove</a>
-            </ListGroup.Item>)}
-        </ListGroup>
+        <Table responsive>
+                <tbody>
+                    {foods.map(food => <tr>
+                        <td><label>{food.description}</label></td>
+                        <td><a href="#" onClick={() => viewReport(food)}>See Report</a></td>
+                        <td><a href="#" onClick={() => removeSelectedFood(food)}>Remove</a></td>
+                    </tr>)}
+                </tbody>
+            </Table>
     </div>
 }
 
