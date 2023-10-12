@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+// @ts-ignore: icons don't have a type
 import {ReactComponent as Plus} from 'bootstrap-icons/icons/plus.svg'
 
 
@@ -14,15 +15,16 @@ import FoodList from '../FoodList/FoodList';
 import Search from '../Search/Search';
 
 import './App.scss';
+import Food from '../../types/Food';
 
 function App() {
 
   const [activeTab, setActiveTab] = useState("foodslist");
-  const [foods, setFoods] = useState([]);
-  const [query, setQuery] = useState(false);
-  const [searchData, setSearchData] = useState([])
+  const [foods, setFoods] = useState<Food []>([]);
+  const [query, setQuery] = useState("");
+  const [searchData, setSearchData] = useState<Food []>([])
   const [viewingSearchResults, setViewingSearchResults] = useState(true);
-  const [selectedFood, setSelectedFood] = useState(null);
+  const [selectedFood, setSelectedFood] = useState<Food | null>(null);
 
   useEffect(() => {
     const storedFoods = localStorage.getItem('foods');
@@ -46,7 +48,7 @@ function App() {
       }
   }, [query]);
 
-  function addToFoodsList(value) {
+  function addToFoodsList(value: Food) {
     if(!foods.map(food => food.fdcId).includes(value.fdcId)) {
       setFoods([...foods, value])
       localStorage.setItem("foods", JSON.stringify([...foods, value]))
@@ -54,13 +56,13 @@ function App() {
     }
   }
 
-  function removeFromFoodsList(value) {
+  function removeFromFoodsList(value: Food) {
     const filteredFoods = foods.filter(food => food.fdcId !== value.fdcId);
     setFoods(filteredFoods);
     localStorage.setItem("foods", JSON.stringify(filteredFoods))
   }
 
-  function viewReport (food) {
+  function viewReport (food: Food) {
     setSelectedFood(food);
     setActiveTab("report");
   }
@@ -71,7 +73,7 @@ function App() {
         <Row>
           <Col>
             <h1>Food Reports</h1>
-            <Search onSearch={(query) => setQuery(query)} clearSearch={() => setQuery("")} />
+            <Search onSearch={(query: string) => setQuery(query)} clearSearch={() => setQuery("")} />
             {viewingSearchResults && <div>
               <label>Search results:</label>
               <ListGroup as="ul">
@@ -80,7 +82,7 @@ function App() {
             </div>}
             <Tabs
               activeKey={activeTab}
-              onSelect={(t) => setActiveTab(t)}
+              onSelect={t => t && setActiveTab(t)} // t can technically be null, for whatever reason
               fill
             >
               <Tab eventKey="foodslist" title="Foods List">

@@ -1,7 +1,13 @@
+import React from 'react';
+
 import Table from 'react-bootstrap/Table';
+import Food from '../../types/Food';
 
+interface BasicReportProps {
+    food: Food;
+}
 
-function BasicReport({ food }) {
+function BasicReport ({ food }: BasicReportProps) {
     return (
         <>
 

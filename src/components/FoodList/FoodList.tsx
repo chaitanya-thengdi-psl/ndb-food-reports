@@ -1,8 +1,19 @@
-import Table from 'react-bootstrap/Table';
-import {ReactComponent as Report} from 'bootstrap-icons/icons/card-list.svg';
-import {ReactComponent as Trash} from 'bootstrap-icons/icons/trash.svg';
+import React from 'react';
 
-function FoodList ({foods, removeSelectedFood, viewReport}) {
+import Table from 'react-bootstrap/Table';
+// @ts-ignore: icons don't have a type
+import {ReactComponent as Report} from 'bootstrap-icons/icons/card-list.svg';
+// @ts-ignore: icons don't have a type
+import {ReactComponent as Trash} from 'bootstrap-icons/icons/trash.svg';
+import Food from '../../types/Food';
+
+interface FoodListProps {
+    foods: Food [];
+    removeSelectedFood: Function;
+    viewReport: Function;
+}
+
+function FoodList ({foods, removeSelectedFood, viewReport}: FoodListProps) {
     return <div className="FoodList">
         <Table responsive>
                 <tbody>

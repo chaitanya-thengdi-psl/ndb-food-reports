@@ -1,3 +1,4 @@
+import React from 'react';
 import {debounce} from 'lodash';
 
 import Button from 'react-bootstrap/Button';
@@ -7,10 +8,15 @@ import Col from 'react-bootstrap/Col';
 
 import './Search.scss';
 
-function Search ({onSearch, clearSearch}) {
+interface SearchProps {
+    onSearch: Function;
+    clearSearch: Function;
+}
+
+function Search ({onSearch, clearSearch}: SearchProps) {
 
     // calls onSearch only after 300ms each time the user types
-    const onChange = debounce(value => onSearch(value), 300);
+    const onChange = debounce((value: string) => onSearch(value), 300);
 
     return <div className="Search">
         <Form>
