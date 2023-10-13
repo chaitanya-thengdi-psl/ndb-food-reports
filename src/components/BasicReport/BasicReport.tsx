@@ -32,7 +32,7 @@ function BasicReport ({ food }: BasicReportProps) {
             <h4>Nutrient Details</h4>
             <Table responsive>
                 <tbody>
-                    {food.foodNutrients.map(nutrient => <tr>
+                    {food.foodNutrients.map(nutrient => <tr key={nutrient.nutrientNumber}>
                         <td>{nutrient.nutrientName}</td><td>{nutrient.value} {nutrient.unitName.toLowerCase()}</td>
                     </tr>
                     )}

@@ -17,7 +17,7 @@ function FoodList ({foods, removeSelectedFood, viewReport}: FoodListProps) {
     return <div className="FoodList">
         <Table responsive>
                 <tbody>
-                    {foods.map(food => <tr>
+                    {foods.map(food => <tr key={food.fdcId}>
                         <td><label>{food.description}</label></td>
                         <td><a className="icon" title="See Report" onClick={() => viewReport(food)}><Report /></a></td>
                         <td><a className="icon" title="Remove" onClick={() => removeSelectedFood(food)}><Trash /></a></td>

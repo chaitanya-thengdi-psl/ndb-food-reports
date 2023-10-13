@@ -77,7 +77,7 @@ function App() {
             {viewingSearchResults && <div>
               <label>Search results:</label>
               <ListGroup as="ul">
-                {searchData.map(datum => <ListGroup.Item as="li"><span>{datum.description}</span> <a className="large icon addSearchResult" title="Add to List" onClick={() => addToFoodsList(datum)}><Plus /></a></ListGroup.Item>)}
+                {searchData.map(datum => <ListGroup.Item key={datum.fdcId} as="li"><span>{datum.description}</span> <a className="large icon addSearchResult" title="Add to List" onClick={() => addToFoodsList(datum)}><Plus /></a></ListGroup.Item>)}
               </ListGroup>
             </div>}
             <Tabs
